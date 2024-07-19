@@ -1,38 +1,73 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
-  text-align: center;
+  border: 2px solid red;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.loopContainer {
+  border: 2px solid magenta;
+  width: 30rem;
+  max-width: 90vw;
   display: flex;
   flex-direction: column;
+  position: relative;
+  padding: 1.5rem 0;
+  overflow: hidden;
+}
+
+.loopRow .loopObj {
+  border: 2px solid greenyellow;
+  display: flex;
+  width: fit-content;
+  animation-name: loop;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: var(--direction);
+  animation-duration: var(--duration);
+}
+
+.tag {
+  border: 2px solid lightblue;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #e2e8f0;
+  background-color: #334155;
+  border-radius: 10px;
+  padding: 15px 10px;
+  margin-right: 0.75rem;
+  box-shadow: 
+    0 0.1rem 0.2rem rgb(0 0 0 / 20%),
+    0 0.1rem 0.5rem rgb(0 0 0 / 30%),
+    0 0.2rem 1.5rem rgb(0 0 0 / 40%);
 }
 
-.App-link {
-  color: #61dafb;
+.tag span {
+  font-size: 1.2rem;
+  color: #64748b;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.fade {
+  background: linear-gradient(90deg, #ffffff, transparent 25%, transparent 75%, #ffffff);
+  position: absolute;
+  inset: 0;
+}
+
+@keyframes loop {
+  0% {
+    transform: translateX(0);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    transform: translateX(-50%);
   }
 }
